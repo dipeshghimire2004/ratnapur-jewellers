@@ -9,10 +9,12 @@ export interface NavItem {
 
 export const mainNav: NavItem[] = [
   { title: "Home", href: "/" },
+  { title: "Products", href: "/products" },
   { title: "Collections", href: "/collections" },
   { title: "About", href: "/about" },
   { title: "Contact", href: "/contact" },
 ];
+
 
 export const footerNav = {
   company: [

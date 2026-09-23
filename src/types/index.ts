@@ -39,3 +39,6 @@ export interface ImageAsset {
   height?: number;
   blurDataUrl?: string;
 }
+
+export * from './product';
+

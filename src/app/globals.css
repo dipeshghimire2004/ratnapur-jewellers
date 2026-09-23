@@ -5,126 +5,156 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* System Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Brand Colors */
+  --color-brand-ivory: var(--brand-ivory);
+  --color-brand-oxblood: var(--brand-oxblood);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-bronze: var(--brand-bronze);
+  --color-brand-taupe: var(--brand-taupe);
+  --color-brand-black: var(--brand-black);
+  
+  /* Font Families */
+  --font-heading: var(--font-heading);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-sans: var(--font-body);
+  
+  /* Border Radius */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Brand Colors - Luxury Dark & Authentic Logo Gold */
+  --brand-ivory: #faf7f2;
+  --brand-oxblood: #1D1D1D;
+  --brand-gold: #c5a059;
+  --brand-gold-light: #e6c885;
+  --brand-gold-dark: #9e7b39;
+  --brand-bronze: #8b6544;
+  --brand-taupe: #6c5547;
+  --brand-black: #1D1D1D;
+  
+  /* System Colors */
+  --background: #1D1D1D;
+  --foreground: #fafafa;
+  --card: #242424;
+  --card-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #1D1D1D;
+  --muted: #2a2a2a;
+  --muted-foreground: #a3a3a3;
+  --destructive: #ef4444;
+  --border: #333333;
+  --input: #333333;
+  --ring: #c5a059;
+  --radius: 0.5rem;
+  
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Responsive Font Sizes */
+  --font-size-4xl: 2.25rem;  /* 36px */
+  --font-size-5xl: 3rem;     /* 48px */
+  --font-size-6xl: 3.75rem;  /* 60px */
+  --font-size-7xl: 4.5rem;   /* 72px */
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #1D1D1D;
+  --foreground: #fafafa;
+  --card: #242424;
+  --card-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #1D1D1D;
+  --muted: #2a2a2a;
+  --muted-foreground: #a3a3a3;
+  --destructive: #7f1d1d;
+  --border: #333333;
+  --input: #333333;
+  --ring: #c5a059;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
   }
-  html {
-    @apply font-sans;
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-foreground font-semibold;
   }
+}
+
+/* Responsive Font Sizes */
+@media (min-width: 640px) {
+  :root {
+    --font-size-4xl: 2.5rem;
+    --font-size-5xl: 3.5rem;
+    --font-size-6xl: 4rem;
+    --font-size-7xl: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-size-4xl: 3rem;
+    --font-size-5xl: 4rem;
+    --font-size-6xl: 5rem;
+    --font-size-7xl: 6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --font-size-4xl: 3.5rem;
+    --font-size-5xl: 4.5rem;
+    --font-size-6xl: 5.5rem;
+    --font-size-7xl: 7rem;
+  }
+}
+
+/* Brand Color Utilities */
+@layer utilities {
+  .bg-brand-ivory { background-color: var(--brand-ivory); }
+  .bg-brand-oxblood { background-color: var(--brand-oxblood); }
+  .bg-brand-gold { background-color: var(--brand-gold); }
+  .bg-brand-bronze { background-color: var(--brand-bronze); }
+  .bg-brand-taupe { background-color: var(--brand-taupe); }
+  
+  .text-brand-ivory { color: var(--brand-ivory); }
+  .text-brand-oxblood { color: var(--brand-oxblood); }
+  .text-brand-gold { color: var(--brand-gold); }
+  .text-brand-bronze { color: var(--brand-bronze); }
+  .text-brand-taupe { color: var(--brand-taupe); }
+  .text-brand-black { color: var(--brand-black); }
+  
+  .border-brand-gold { border-color: var(--brand-gold); }
+  .border-brand-oxblood { border-color: var(--brand-oxblood); }
+  
+  .font-heading { font-family: var(--font-heading); }
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-body); }
 }
