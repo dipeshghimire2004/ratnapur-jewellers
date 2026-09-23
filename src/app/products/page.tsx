@@ -10,9 +10,8 @@ import { SlidersHorizontal, ChevronDown, Sparkles } from 'lucide-react';
 const CATEGORIES = ['All', 'Earrings', 'Bracelets', 'Rings', 'Necklaces'];
 const SORT_OPTIONS = [
   { label: 'Featured', value: 'featured' },
-  { label: 'Price: Low to High', value: 'price-asc' },
-  { label: 'Price: High to Low', value: 'price-desc' },
   { label: 'Newest Arrivals', value: 'newest' },
+  { label: 'Name (A-Z)', value: 'name-asc' },
 ];
 
 export default function ProductsPage() {
@@ -31,12 +30,10 @@ export default function ProductsPage() {
       );
     }
 
-    if (sortBy === 'price-asc') {
-      result.sort((a, b) => a.price - b.price);
-    } else if (sortBy === 'price-desc') {
-      result.sort((a, b) => b.price - a.price);
-    } else if (sortBy === 'newest') {
+    if (sortBy === 'newest') {
       result.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+    } else if (sortBy === 'name-asc') {
+      result.sort((a, b) => a.name.localeCompare(b.name));
     }
 
     return result;
@@ -127,7 +124,7 @@ export default function ProductsPage() {
                 Close ✕
               </button>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
               <div>
                 <span className="block font-semibold uppercase tracking-wider mb-2 text-brand-gold">Precious Metal</span>
                 <div className="space-y-1.5 text-muted-foreground">
@@ -144,23 +141,14 @@ export default function ProductsPage() {
               </div>
 
               <div>
-                <span className="block font-semibold uppercase tracking-wider mb-2 text-brand-gold">Availability</span>
+                <span className="block font-semibold uppercase tracking-wider mb-2 text-brand-gold">Collection & Type</span>
                 <div className="space-y-1.5 text-muted-foreground">
                   <label className="flex items-center gap-2 cursor-pointer hover:text-foreground">
-                    <input type="checkbox" defaultChecked className="rounded accent-brand-gold" /> In Stock
+                    <input type="checkbox" defaultChecked className="rounded accent-brand-gold" /> High Jewelry Creations
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer hover:text-foreground">
-                    <input type="checkbox" className="rounded accent-brand-gold" /> Ready for Bespoke Order
+                    <input type="checkbox" defaultChecked className="rounded accent-brand-gold" /> Bespoke & Signature Pieces
                   </label>
-                </div>
-              </div>
-
-              <div>
-                <span className="block font-semibold uppercase tracking-wider mb-2 text-brand-gold">Price Range</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground">€1,000</span>
-                  <input type="range" min="1000" max="10000" className="w-full accent-brand-gold" />
-                  <span className="text-muted-foreground">€10,000+</span>
                 </div>
               </div>
             </div>

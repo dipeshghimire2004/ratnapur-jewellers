@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X, Heart, ShoppingBag, Check, ShieldCheck, Sparkles } from 'lucide-react';
+import { X, Heart, MessageCircle, ShieldCheck, Sparkles, Calendar } from 'lucide-react';
 import { Product } from '@/types';
 import { Button } from '@/components/ui/button';
 
@@ -14,21 +14,20 @@ interface ProductQuickViewProps {
 
 export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
   const [selectedImage, setSelectedImage] = useState<'item' | 'wearable'>('item');
-  const [isAdded, setIsAdded] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(false);
 
   if (!product) return null;
 
-  const formattedPrice =
-    product.formattedPrice ||
-    `${product.currency || '€'}${product.price.toLocaleString()}`;
-
   const currentImageSrc =
     selectedImage === 'item' ? product.itemImage : product.wearableImage;
 
-  const handleAddToCart = () => {
-    setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 2500);
+  const handleInquireWhatsApp = () => {
+    const text = encodeURIComponent(
+      `Hello Ratnapur Jewellers, I would like to inquire about the piece "${product.name}" (${product.category}${
+        product.sku ? `, SKU: ${product.sku}` : ''
+      }).`
+    );
+    window.open(`https://wa.me/?text=${text}`, '_blank');
   };
 
   return (
@@ -113,19 +112,23 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
           </div>
         </div>
 
-        {/* Right Side: Product Details & Actions */}
+        {/* Right Side: Product Details & Inquiry Actions */}
         <div className="flex flex-col justify-between p-6 md:p-8 space-y-6">
           <div className="space-y-4">
             <div className="space-y-1">
-              <span className="text-xs font-sans uppercase tracking-[0.2em] text-brand-gold font-medium">
-                {product.category}
-              </span>
-              <h2 className="text-2xl md:text-3xl font-heading font-medium text-foreground">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-sans uppercase tracking-[0.2em] text-brand-gold font-medium">
+                  {product.category}
+                </span>
+                {product.sku && (
+                  <span className="text-[11px] font-sans text-muted-foreground tracking-wider">
+                    {product.sku}
+                  </span>
+                )}
+              </div>
+              <h2 className="text-2xl md:text-3xl font-heading font-medium text-foreground pt-1">
                 {product.name}
               </h2>
-              <p className="text-xl font-sans font-semibold text-foreground pt-1">
-                {formattedPrice}
-              </p>
             </div>
 
             <div className="w-12 h-[1px] bg-brand-gold/40 my-3" />
@@ -148,28 +151,22 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
                 <span>Authenticated 18k Fine Gold & Certified Diamonds</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-brand-gold" />
-                <span>Complimentary Insured Shipping & Luxury Gift Packaging</span>
+                <Calendar className="w-4 h-4 text-brand-gold" />
+                <span>Bespoke Customization & Private Boutique Viewing Available</span>
               </div>
             </div>
           </div>
 
-          {/* Action Buttons */}
+          {/* Action Buttons: Inquiry & Appointment */}
           <div className="space-y-3 pt-4 border-t border-[#2A2A2A]">
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button
-                onClick={handleAddToCart}
+                onClick={handleInquireWhatsApp}
                 className="flex-1 bg-brand-gold hover:bg-brand-gold-light text-black font-semibold uppercase tracking-wider text-xs py-6 transition-all"
               >
-                {isAdded ? (
-                  <span className="flex items-center gap-2">
-                    <Check className="w-4 h-4" /> Added to Bag
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <ShoppingBag className="w-4 h-4" /> Add to Shopping Bag
-                  </span>
-                )}
+                <span className="flex items-center justify-center gap-2">
+                  <MessageCircle className="w-4 h-4" /> Inquire Creation
+                </span>
               </Button>
 
               <Button

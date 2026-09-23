@@ -23,10 +23,6 @@ export function ProductCard({
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  const formattedPrice =
-    product.formattedPrice ||
-    `${product.currency || '€'}${product.price.toLocaleString()}`;
-
   const aspectClasses = {
     square: 'aspect-square',
     portrait: 'aspect-[4/5]',
@@ -131,27 +127,20 @@ export function ProductCard({
         </Link>
       </div>
 
-      {/* Product Details Section Below Image */}
-      <div className="pt-3.5 pb-1 flex flex-col gap-1">
-        {/* Row 1: Category on left, Price on right */}
-        <div className="flex items-center justify-between text-xs tracking-wider">
-          <span className="text-muted-foreground font-sans font-medium uppercase tracking-widest text-[11px]">
-            {product.category}
-          </span>
-          <span className="font-sans font-medium text-foreground text-[13px] tracking-tight">
-            {formattedPrice}
-          </span>
-        </div>
+      {/* Product Details Section Below Image (Matching reference screenshot exactly) */}
+      <div className="pt-3.5 pb-1 flex flex-col gap-0.5">
+        {/* Row 1: Category on left */}
+        <span className="text-muted-foreground font-sans font-medium uppercase tracking-widest text-[11px]">
+          {product.category}
+        </span>
 
         {/* Row 2: Product Name */}
-        <div className="flex items-center justify-between">
-          <Link
-            href={`/products/${product.slug}`}
-            className="font-heading text-lg font-medium text-foreground group-hover:text-brand-gold transition-colors duration-300 tracking-wide line-clamp-1"
-          >
-            {product.name}
-          </Link>
-        </div>
+        <Link
+          href={`/products/${product.slug}`}
+          className="font-heading text-lg font-medium text-foreground group-hover:text-brand-gold transition-colors duration-300 tracking-wide line-clamp-1"
+        >
+          {product.name}
+        </Link>
       </div>
     </div>
   );
