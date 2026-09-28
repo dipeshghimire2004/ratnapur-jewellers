@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { siteConfig } from "@/config/site";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import "./globals.css";
 
 // Cormorant Garamond for headings and display text
@@ -49,6 +50,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen antialiased">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

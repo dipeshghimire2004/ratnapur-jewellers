@@ -4,17 +4,17 @@ import Image from 'next/image';
 
 export function TimelessElegance() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#1D1D1D] flex items-end">
-      {/* Full Screen Image */}
+    <section className="sticky top-0 h-screen w-full overflow-hidden bg-[#1D1D1D] flex items-end z-0">
+      {/* Fixed Full Screen Image Canvas */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/second-image.png"
           alt="Ratnapur Jewellers Timeless Craftsmanship"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center scale-100 transition-transform duration-1000 ease-out"
           priority
         />
-        {/* Subtle bottom-left gradient shadow for text legibility without blurring the image */}
+        {/* Subtle bottom-left gradient shadow for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-tr from-[#1D1D1D]/90 via-[#1D1D1D]/45 to-transparent z-10 pointer-events-none" />
       </div>
 

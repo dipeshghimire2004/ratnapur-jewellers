@@ -14,8 +14,8 @@ export function Header() {
   const navLinks = [
     { href: '/story', label: 'STORY' },
     { href: '/collections', label: 'COLLECTIONS' },
-    { href: '/heritage', label: 'HERITAGE' },
-    { href: '/craft', label: 'CRAFT' },
+    { href: '/about', label: 'ABOUT' },
+    { href: '/contact', label: 'CONTACT' },
     { href: '/journal', label: 'JOURNAL' },
   ];
 
@@ -37,9 +37,9 @@ export function Header() {
             <Image
               src="/word-mark-logo.png"
               alt="Ratnapur Jewellers"
-              width={220}
-              height={55}
-              className="h-9 sm:h-12 w-auto object-contain mix-blend-screen"
+              width={280}
+              height={70}
+              className="h-12 sm:h-14 lg:h-16 w-auto object-contain mix-blend-screen"
               priority
             />
           </Link>

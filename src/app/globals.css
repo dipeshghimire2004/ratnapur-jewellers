@@ -23,13 +23,15 @@
   --color-brand-ivory: var(--brand-ivory);
   --color-brand-oxblood: var(--brand-oxblood);
   --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-light: var(--brand-gold-light);
+  --color-brand-gold-dark: var(--brand-gold-dark);
   --color-brand-bronze: var(--brand-bronze);
   --color-brand-taupe: var(--brand-taupe);
   --color-brand-black: var(--brand-black);
-  
+
   /* Font Families */
   --font-heading: var(--font-heading);
-  --font-display: var(--font-display);
+  --font-display: var(--font-heading);
   --font-body: var(--font-body);
   --font-sans: var(--font-body);
   
@@ -51,7 +53,7 @@
   --brand-bronze: #8b6544;
   --brand-taupe: #6c5547;
   --brand-black: #1D1D1D;
-  
+
   /* System Colors */
   --background: #1D1D1D;
   --foreground: #fafafa;
@@ -68,15 +70,8 @@
   --radius: 0.5rem;
   
   /* Typography */
-  --font-heading: 'Cormorant Garamond', serif;
-  --font-display: 'Cormorant Garamond', serif;
-  --font-body: 'Inter', sans-serif;
-  
-  /* Responsive Font Sizes */
-  --font-size-4xl: 2.25rem;  /* 36px */
-  --font-size-5xl: 3rem;     /* 48px */
-  --font-size-6xl: 3.75rem;  /* 60px */
-  --font-size-7xl: 4.5rem;   /* 72px */
+  --font-heading: var(--font-heading, 'Cormorant Garamond', serif);
+  --font-body: var(--font-body, 'Inter', sans-serif);
 }
 
 .dark {
@@ -108,53 +103,49 @@
   }
 }
 
-/* Responsive Font Sizes */
-@media (min-width: 640px) {
-  :root {
-    --font-size-4xl: 2.5rem;
-    --font-size-5xl: 3.5rem;
-    --font-size-6xl: 4rem;
-    --font-size-7xl: 5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --font-size-4xl: 3rem;
-    --font-size-5xl: 4rem;
-    --font-size-6xl: 5rem;
-    --font-size-7xl: 6rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  :root {
-    --font-size-4xl: 3.5rem;
-    --font-size-5xl: 4.5rem;
-    --font-size-6xl: 5.5rem;
-    --font-size-7xl: 7rem;
-  }
-}
-
-/* Brand Color Utilities */
 @layer utilities {
-  .bg-brand-ivory { background-color: var(--brand-ivory); }
-  .bg-brand-oxblood { background-color: var(--brand-oxblood); }
-  .bg-brand-gold { background-color: var(--brand-gold); }
-  .bg-brand-bronze { background-color: var(--brand-bronze); }
-  .bg-brand-taupe { background-color: var(--brand-taupe); }
-  
-  .text-brand-ivory { color: var(--brand-ivory); }
-  .text-brand-oxblood { color: var(--brand-oxblood); }
-  .text-brand-gold { color: var(--brand-gold); }
-  .text-brand-bronze { color: var(--brand-bronze); }
-  .text-brand-taupe { color: var(--brand-taupe); }
-  .text-brand-black { color: var(--brand-black); }
-  
-  .border-brand-gold { border-color: var(--brand-gold); }
-  .border-brand-oxblood { border-color: var(--brand-oxblood); }
-  
+  /* Font Family Helper Classes */
   .font-heading { font-family: var(--font-heading); }
-  .font-display { font-family: var(--font-display); }
+  .font-display { font-family: var(--font-heading); }
   .font-body { font-family: var(--font-body); }
+  .font-sans { font-family: var(--font-body); }
+
+  /* 5 Core Typographic Utility Tokens */
+  .font-display-hero {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .font-section-title {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  .font-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--brand-gold);
+  }
+
+  .font-body-lead {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .font-body-muted {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+  }
 }

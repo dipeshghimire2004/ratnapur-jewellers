@@ -4,7 +4,8 @@ import { ChevronDown } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#1D1D1D] pt-16 lg:pt-20">
+    <section className="relative z-10 min-h-screen w-full overflow-hidden bg-[#1D1D1D] pt-16 lg:pt-20">
+
       {/* Background Video with Vignette Overlay */}
       <div className="absolute inset-0 z-0">
         {/* Left side dark vignette for legibility + subtle top/bottom fade */}
